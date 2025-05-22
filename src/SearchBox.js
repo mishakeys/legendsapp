@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import OutlinedInput from '@mui/material/OutlinedInput';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
@@ -7,52 +7,87 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import legends from "./LegendsList";
 
-export default function SearchBox() {
-    const [searchText, setSearchText] = useState("");
-    console.log(searchText);
-    return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex" }}>
-                <div style={{ flex: 1 }}>
-                    <OutlinedInput 
-                    style={{ width: "100%" }} 
-                    value={searchText} 
-                    onChange={(event) => {
-                        setSearchText(event.target.value);
-                    }}/>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", padding: "8px 20px" }}>
-                    <Button variant="contained" color="primary" onClick={() => {
-                        //Search
-                    }}>
-                        Search
-                    </Button>
-                </div>
-            </div>
-            <div>
-                <nav aria-label="main mailbox folders">
-                    {
-                        [1, 2, 3, 4, 5].map((item) => {
-                            return (
-                                <div key={item}>
-                                    <List>
-                                        <ListItem disablePadding>
-                                            <ListItemButton>
-                                                <ListItemIcon>
-                                                    <img src="/star.png" alt="Placeholder" style={{ width: 38, height: 38 }} />
-                                                </ListItemIcon>
-                                                <ListItemText primary="Inbox" />
-                                            </ListItemButton>
-                                        </ListItem>
-                                    </List>
-                                </div>
-                            );
-                        })
-                    }
+function getDistanceInMiles(lat1, lon1, lat2, lon2) {
+  const R = 3958.8;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) ** 2;
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+}
 
-                </nav>
-            </div>
+export default function SearchBox({ position, setPosition }) {
+  const [nearbyLegends, setNearbyLegends] = useState([]);
+
+  const handleLocate = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const { latitude, longitude } = pos.coords;
+          const userPos = [latitude, longitude];
+          setPosition(userPos);
+
+          const nearby = legends.filter((legend) => {
+            const dist = getDistanceInMiles(
+              latitude,
+              longitude,
+              legend.lat,
+              legend.lon
+            );
+            return dist <= 10;
+          });
+
+          setNearbyLegends(nearby);
+        },
+        (err) => {
+          console.error(err);
+          alert("Unable to retrieve your location.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
+  return (
+    <div style={{ padding: 20 }}>
+      <button
+        onClick={handleLocate}
+        style={{
+          marginBottom: "20px",
+          padding: "10px 20px",
+          backgroundColor: "#007bff",
+          color: "#fff",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+        }}
+      >
+        See My Location
+      </button>
+
+      {nearbyLegends.length > 0 && (
+        <div>
+          <h4>Nearby Hawaiian Legends</h4>
+          <ul style={{ paddingLeft: 20 }}>
+            {nearbyLegends.map((legend) => (
+              <li key={legend.id} style={{ marginBottom: "10px" }}>
+                <strong>{legend.title}</strong>
+                <br />
+                <span style={{ fontSize: "0.85em", color: "#555" }}>
+                  {legend.description}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
-    )
+      )}
+    </div>
+  );
 }

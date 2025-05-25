@@ -25,13 +25,13 @@ function RecenterMap({ position }) {
 }
 
 export default function Maps({ position }) {
-  const defaultPosition = [19.649, -155.994];
+  const defaultPosition = [19.6, -155.9];
 
   return (
     <div style={{ position: "relative", width: "100%", height: "100%" }}>
       <MapContainer
         center={position || defaultPosition}
-        zoom={13}
+        zoom={8}
         scrollWheelZoom={false}
         style={{ width: "100%", height: "100%" }}
       >

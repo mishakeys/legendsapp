@@ -1,0 +1,80 @@
+.searchbox-container {
+  padding: 2rem;
+  background-color: #f5f2ec;
+  border-left: 4px solid #ff3700;
+  height: 100%;
+  overflow-y: auto;
+  font-family: 'Georgia', serif;
+  color: #2e2e2e;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-form {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  flex-grow: 1;
+  background-color: white;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  margin-left: 0.75rem;
+  background-color: #ff3700;
+  color: white;
+  font-weight: bold;
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #f0a708;
+}
+
+.locate-button {
+  margin-bottom: 1.5rem;
+  border: 2px solid #ff3700;
+  color: #ff3700;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.locate-button:hover {
+  background-color: #ffe0c2;
+}
+
+.legend-list {
+  margin-top: 1rem;
+}
+
+.legend-list h4 {
+  color: #000100;
+  margin-bottom: 1rem;
+}
+
+.legend-list ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.legend-list li {
+  margin-bottom: 1rem;
+}
+
+.legend-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}

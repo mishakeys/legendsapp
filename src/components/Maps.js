@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
@@ -24,7 +25,7 @@ function RecenterMap({ position }) {
   return null;
 }
 
-export default function Maps({ position }) {
+export default function Maps({ position, nearbyLegends = [] }) {
   const defaultPosition = [19.6, -155.9];
 
   return (
@@ -56,6 +57,24 @@ export default function Maps({ position }) {
             <RecenterMap position={position} />
           </>
         )}
+        {nearbyLegends.map((legend) => (
+          <Marker
+            key={legend.id}
+            position={[legend.lat, legend.lon]}
+            icon={L.icon({
+              iconUrl: markerIcon,
+              shadowUrl: markerShadow,
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+            })}
+          >
+            <Popup>
+              <h3>{legend.title}</h3>
+              <p>{legend.description}</p>
+              <Link to={`/legends/${legend.id}`}>View Legend</Link>
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </div>
   );

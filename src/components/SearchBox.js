@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import OutlinedInput from '@mui/material/OutlinedInput';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
+import { Box, Button, OutlinedInput, Typography, List, ListItem, ListItemText, Paper, Container } from '@mui/material';
+import { Link } from "react-router-dom";
 import legends from "./LegendsList";
 import "./SearchBox.css";
 
@@ -23,8 +17,13 @@ function getDistanceInMiles(lat1, lon1, lat2, lon2) {
   return R * c;
 }
 
-export default function SearchBox({ position, setPosition }) {
-  const [nearbyLegends, setNearbyLegends] = useState([]);
+export default function SearchBox({
+  position,
+  setPosition,
+  nearbyLegends = [],
+  setNearbyLegends,
+}) {
+  
   const [query, setQuery] = useState("");
 
   const handleLocate = () => {
@@ -110,20 +109,32 @@ export default function SearchBox({ position, setPosition }) {
       </button>
 
       {nearbyLegends.length > 0 && (
-        <div>
-          <h4>Nearby Hawaiian Legends</h4>
-          <ul style={{ paddingLeft: 20 }}>
+        <>
+          <Typography variant="h6" gutterBottom>
+            Nearby Hawaiian Legends
+          </Typography>
+          <List>
             {nearbyLegends.map((legend) => (
-              <li key={legend.id} style={{ marginBottom: "10px" }}>
-                <strong>{legend.title}</strong>
-                <br />
-                <span style={{ fontSize: "0.85em", color: "#555" }}>
-                  {legend.description}
-                </span>
-              </li>
+              <ListItem key={legend.id} sx={{ mb: 1 }}>
+                <ListItemText
+                  primary={
+                    <Link
+                      to={`/legend/${legend.id}`}
+                      style={{ textDecoration: "none", color: "#1976d2" }}
+                    >
+                      {legend.title}
+                    </Link>
+                  }
+                  secondary={
+                    <Typography variant="body2" color="text.secondary">
+                      {legend.description}
+                    </Typography>
+                  }
+                />
+              </ListItem>
             ))}
-          </ul>
-        </div>
+          </List>
+        </>
       )}
     </div>
   );

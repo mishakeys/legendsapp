@@ -14,14 +14,9 @@
   margin-bottom: 1.5rem;
 }
 
-.search-input {
-  flex-grow: 1;
-  background-color: white;
-  border-radius: 6px;
-  padding: 0.5rem;
-  font-size: 1rem;
-  font-family: inherit;
-  border: 1px solid #ccc;
+.searchbox-root .MuiOutlinedInput-root {
+  background-color: #fff !important;
+  opacity: 1 !important;
 }
 
 .search-button {
@@ -77,4 +72,31 @@
   margin: 0;
   font-size: 0.9rem;
   color: #555;
+}
+
+.searchbox-root {
+  position: relative;
+  background-image: url('../assets/background-Home-Water.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 20px;
+  z-index: 0;
+}
+
+.searchbox-root::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(19, 24, 23, 0.68); /* Semi-transparent overlay */
+  z-index: -1; /* Behind the content */
+}
+.searchbox-root h1 {
+  color: #ff3700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }

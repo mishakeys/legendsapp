@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, OutlinedInput, Typography, List, ListItem, ListItemText, Paper, Container } from '@mui/material';
+import { Box, Button, OutlinedInput, Typography, List, ListItem, ListItemText, Paper, Container, Card, CardContent } from '@mui/material';
 import { Link } from "react-router-dom";
 import legends from "./LegendsList";
 import "./SearchBox.css";
@@ -23,7 +23,7 @@ export default function SearchBox({
   nearbyLegends = [],
   setNearbyLegends,
 }) {
-  
+
   const [query, setQuery] = useState("");
 
   const handleLocate = () => {
@@ -80,7 +80,7 @@ export default function SearchBox({
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="searchbox-root">
       <form onSubmit={handleSearch} style={{ display: "flex", marginBottom: "20px" }}>
         <OutlinedInput
           placeholder="Search for a location..."
@@ -109,18 +109,19 @@ export default function SearchBox({
       </button>
 
       {nearbyLegends.length > 0 && (
-        <>
-          <Typography variant="h6" gutterBottom>
+        <Card sx={{ background: "rgba(255, 255, 255, 0.84)", mb: 2 }}>
+        <CardContent>
+          <Typography variant="h6" gutterBottom sx={{ fontFamily: 'fantasy, Papyrus, Copperplate, cursive' }}>
             Nearby Hawaiian Legends
           </Typography>
-          <List>
+          <List sx={{ fontFamily: 'fantasy, Papyrus, Copperplate, cursive' }}>
             {nearbyLegends.map((legend) => (
               <ListItem key={legend.id} sx={{ mb: 1 }}>
                 <ListItemText
                   primary={
                     <Link
                       to={`/legend/${legend.id}`}
-                      style={{ textDecoration: "none", color: "#1976d2" }}
+                      style={{ textDecoration: "none", color: "#2F4F4F", fontFamily: 'fantasy, Papyrus, Copperplate, cursive'}}
                     >
                       {legend.title}
                     </Link>
@@ -134,7 +135,8 @@ export default function SearchBox({
               </ListItem>
             ))}
           </List>
-        </>
+          </CardContent>
+          </Card>
       )}
     </div>
   );

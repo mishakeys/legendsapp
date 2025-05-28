@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import legendMarker from '../assets/location.png';
 
 
 // Fix default marker icon issue
@@ -14,6 +15,13 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow,
 });
 
+// Custom icon for legends
+const legendIcon = new L.Icon({
+  iconUrl: legendMarker,
+  iconSize: [40, 40], 
+  iconAnchor: [20, 40], 
+  popupAnchor: [0, -40], 
+});
 
 function RecenterMap({ position }) {
   const map = useMap();
@@ -61,12 +69,8 @@ export default function Maps({ position, nearbyLegends = [] }) {
           <Marker
             key={legend.id}
             position={[legend.lat, legend.lon]}
-            icon={L.icon({
-              iconUrl: markerIcon,
-              shadowUrl: markerShadow,
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-            })}
+            icon={legendIcon}
+            title={legend.title}
           >
             <Popup>
               <h3>{legend.title}</h3>

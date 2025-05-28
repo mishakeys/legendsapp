@@ -71,7 +71,7 @@ export default function Header() {
       </AppBar>
 
       <Drawer
-        anchor="right"
+        anchor="left"
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         PaperProps={{

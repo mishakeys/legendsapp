@@ -32,10 +32,14 @@ export default function About() {
                     and values of Hawaiian culture, inviting everyone, locals and visitors alike, to explore
                     Hawaiʻi with respect and curiosity.
                 </Typography>
-                <Typography variant="body2" sx={{ fontWeight: 'normal', mt: 1 }}>
-                    <strong>Note:</strong> The legends shared on this page were gathered from various resources,
-                    to which I do not hold rights. They are shared with the utmost respect for Hawaiian culture
-                    and are intended to honor the traditions passed down through generations.
+                <Typography variant="body2" sx={{ fontStyle: 'italic', fontWeight: 'normal', mt: 1 }}>
+                    <strong>Note:</strong> The legends and stories presented here are part of Hawaiʻi’s traditional oral history, 
+                    passed down through generations by Native Hawaiian communities. They are shared solely for educational and cultural 
+                    appreciation purposes. No copyright or ownership is claimed over the original narratives. 
+                    All legends have been retold with reference to reputable published sources, which are cited for educational transparency 
+                    and respect for intellectual contributions. Full credit is given to the original storytellers, cultural practitioners, 
+                    and authors whose work has helped preserve these traditions. Readers are encouraged to consult Native Hawaiian scholars, 
+                    elders, and primary resources for deeper understanding and context.
                 </Typography>
 
                 <Divider sx={{ my: 3, borderColor: '#80d0ff' }} />
@@ -61,14 +65,14 @@ export default function About() {
                 <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, mt: 3 }}>
                     Born in Nāpoʻopoʻo, he was a true pillar of our ʻohana. A retired school teacher,
                     a proud veteran of both the U.S. Army and the Hawaiʻi Army National Guard,
-                    a devoted member of the Lions Club of Kona, and a deacon at Hauʻoli Kamano Church.
-                    His life was a beautiful reflection of love, service, and a deep commitment to his
-                    family and community.
+                    a devoted member of the Lions Club of Kona, and a deacon at Hauʻoli Kamano Church in Miloliʻi, Hawaii.
+                    He was widely known for his storytelling, especially his deep knowledge of Hawaiian legends,
+                    which he shared with warmth, humor, and reverence.
                 </Typography>
 
                 <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, mt: 3 }}>
-                    He was widely known for his storytelling, especially his deep knowledge of Hawaiian legends,
-                    which he shared with warmth, humor, and reverence.
+                    His life was a beautiful reflection of love, service, and a deep commitment to his
+                    family, community, and our Hawaiian culture.
                 </Typography>
 
                 <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, mt: 3 }}>

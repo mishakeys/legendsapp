@@ -75,7 +75,7 @@ export default function Maps({ position, nearbyLegends = [] }) {
             <Popup>
               <h3>{legend.title}</h3>
               <p>{legend.description}</p>
-              <Link to={`/legends/${legend.id}`}>View Legend</Link>
+              <Link to={`/legend/${legend.id}`}>View Legend</Link>
             </Popup>
           </Marker>
         ))}

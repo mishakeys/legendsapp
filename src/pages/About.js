@@ -68,8 +68,7 @@ export default function About() {
 
                 <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, mt: 3 }}>
                     He was widely known for his storytelling, especially his deep knowledge of Hawaiian legends,
-                    which he shared with warmth, humor, and reverence. His love for our culture was so profound
-                    that it was even acknowledged in print, as he was featured in a published book.
+                    which he shared with warmth, humor, and reverence.
                 </Typography>
 
                 <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, mt: 3 }}>

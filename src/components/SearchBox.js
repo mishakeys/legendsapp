@@ -111,17 +111,17 @@ export default function SearchBox({
       {nearbyLegends.length > 0 && (
         <Card sx={{ background: "rgba(255, 255, 255, 0.84)", mb: 2 }}>
         <CardContent>
-          <Typography variant="h6" gutterBottom sx={{ fontFamily: 'fantasy, Papyrus, Copperplate, cursive' }}>
+          <Typography variant="h6" gutterBottom sx={{ fontFamily: 'fantasy, Papyrus, Copperplate' }}>
             Nearby Hawaiian Legends
           </Typography>
-          <List sx={{ fontFamily: 'fantasy, Papyrus, Copperplate, cursive' }}>
+          <List sx={{ fontFamily: 'fantasy, Papyrus, Copperplate' }}>
             {nearbyLegends.map((legend) => (
               <ListItem key={legend.id} sx={{ mb: 1 }}>
                 <ListItemText
                   primary={
                     <Link
                       to={`/legend/${legend.id}`}
-                      style={{ textDecoration: "none", color: "#2F4F4F", fontFamily: 'fantasy, Papyrus, Copperplate, cursive'}}
+                      style={{ textDecoration: "none", color: "#2F4F4F", fontFamily: 'fantasy, Papyrus, Copperplate'}}
                     >
                       {legend.title}
                     </Link>

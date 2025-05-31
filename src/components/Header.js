@@ -40,7 +40,7 @@ export default function Header() {
           backgroundColor: 'rgba(25, 25, 30, 0.4)',
           backdropFilter: 'blur(6px)',
           borderBottom: '2px solid rgba(255,255,255,0.1)',
-          backgroundImage: 'url(../assets/Hawaiian-background.png)',
+          backgroundImage: 'url(/Hawaiian-background.png)',
             backgroundSize: 'cover',
             backgroundBlendMode: 'soft-light',
         }}

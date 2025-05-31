@@ -40,7 +40,7 @@ As fire met snow, the earth hissed and steamed. Poliʻahu’s golden robe caught
 
 Pele summoned a river of lava to chase her, riding its red-hot crest like a wave. But Poliʻahu didn’t flinch. She stood in its path, arms wide. Icy wind and snow rushed down the mountain. The lava slowed... then split apart at her feet, moving around her like water around a stone.
 
-When the lava reached the ocean, it cooled and formed a wide, flat piece of land. That place is known today as the Onomea Arch.
+When the lava reached the ocean, it formed a long flat point of land known to this day as Laupahoehoe, and the great ledge of the arch of Onomea. The arch collapsed during an earthquake in 1956.
 
 After that day, Pele never dared to cross Mauna Kea again. The snowy north remained Poliʻahu’s peaceful home, and the fiery south belonged to Pele.
 `;

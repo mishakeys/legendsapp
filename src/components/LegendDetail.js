@@ -57,7 +57,8 @@ export default function LegendDetail() {
                       color="text.secondary"
                       sx={{ fontStyle: 'italic' }}
                     >
-                      This story is part of Hawaiʻi’s oral tradition. Shared with respect — no rights claimed.
+                      Aloha Note: These stories do not belong to me. They are the treasured traditions of Hawaiʻi, passed down through generations. 
+                      I have included sources and references below to give proper respect to their origins and storytellers.
                     </Typography>
                   </Box>
                   <Typography variant="h6" sx={{ mt: 3, mb: 1 }}>

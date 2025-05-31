@@ -8,7 +8,12 @@ export default function ContactForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        emailjs.sendForm('service_hq65jiq', 'template_557q78a', form.current, 'FgaRYXvE9jZrdjEei')
+        emailjs.sendForm(
+            process.env.REACT_APP_EMAILJS_SERVICE_ID,
+            process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+            form.current,
+            process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        )
             .then((result) => {
                 alert('Message sent!\nMahalo!');
                 form.current.reset();

@@ -57,7 +57,7 @@ export default function Header() {
             </IconButton>
           )}
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Hawaiian Legends Explorer
+            Hawaii Legends Explorer
           </Typography>
           {!isMobile &&
             navItems.map((item) => (
